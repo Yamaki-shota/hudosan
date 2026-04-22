@@ -1,0 +1,545 @@
+/* =========================================
+   Variables
+   ========================================= */
+:root {
+    --color-bg: #FAF9F8; /* グレージュ寄りの白 */
+    --color-text: #333333;
+    --color-accent: #A68A64; /* 上品なゴールド/真鍮色 */
+    --font-serif: 'Noto Serif JP', serif;
+    --font-sans: 'Zen Kaku Gothic New', sans-serif;
+}
+
+/* =========================================
+   Reset & Base
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    line-height: 1.8;
+    letter-spacing: 0.05em;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, .logo {
+    font-family: var(--font-serif);
+    font-weight: 400;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* =========================================
+   Utility Classes
+   ========================================= */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.text-center { text-align: center; }
+.mt-40 { margin-top: 40px; }
+
+/* ボタンコンポーネント */
+.btn-primary, .btn-secondary {
+    display: inline-block;
+    padding: 15px 40px;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+    border: 1px solid var(--color-text);
+}
+
+.btn-primary {
+    background-color: var(--color-text);
+    color: #fff;
+    margin-top: 20px;
+}
+.btn-primary:hover {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-text);
+}
+.btn-secondary:hover {
+    background-color: var(--color-text);
+    color: #fff;
+}
+
+.btn-text {
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+.btn-text:hover { color: var(--color-accent); }
+
+/* =========================================
+   Header
+   ========================================= */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 20px 40px;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.header.scrolled {
+    background-color: rgba(250, 249, 248, 0.95);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+    backdrop-filter: blur(10px);
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    letter-spacing: 0.1em;
+    color: var(--color-text);
+}
+
+.gnav ul {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+}
+
+.gnav a {
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    transition: color 0.3s ease;
+}
+
+.gnav a:hover {
+    color: var(--color-accent);
+}
+
+.btn-contact {
+    background-color: var(--color-text);
+    color: #fff;
+    padding: 12px 30px;
+    font-size: 0.9rem;
+    transition: background 0.3s;
+}
+
+.btn-contact:hover {
+    background-color: var(--color-accent);
+}
+
+/* =========================================
+   Hero Section
+   ========================================= */
+.hero {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 10%;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    z-index: -1;
+    animation: slowZoom 20s infinite alternate linear;
+}
+
+.hero-bg::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(250,249,248,0.9) 0%, rgba(250,249,248,0.3) 100%);
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    color: var(--color-text);
+}
+
+.hero-sub {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* =========================================
+   Sections Common
+   ========================================= */
+.section {
+    padding: 120px 0;
+}
+
+.section-en {
+    display: block;
+    color: var(--color-accent);
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 10px;
+    font-family: var(--font-sans);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    line-height: 1.4;
+}
+
+.section-header {
+    margin-bottom: 60px;
+}
+
+/* =========================================
+   Concept Section
+   ========================================= */
+.concept-flex {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+}
+
+.concept-image {
+    flex: 1;
+    position: relative;
+}
+
+.concept-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    aspect-ratio: 3/4;
+    box-shadow: 20px 20px 0 var(--color-bg), 21px 21px 0 var(--color-accent);
+}
+
+.concept-text {
+    flex: 1;
+}
+
+.concept-text p {
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.signature {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    text-align: right;
+    margin-top: 40px;
+    color: var(--color-text);
+}
+
+/* =========================================
+   Service Section
+   ========================================= */
+.service {
+    background-color: #fff;
+}
+
+.service .section-header {
+    text-align: center;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.service-card {
+    background: var(--color-bg);
+    padding: 50px 30px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+}
+
+.card-num {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    color: var(--color-accent);
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+}
+
+.service-card p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* =========================================
+   For Owners Section
+   ========================================= */
+.owners {
+    background-color: var(--color-bg);
+}
+
+.owners-inner {
+    background-color: #fff;
+    display: flex;
+    align-items: stretch;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+}
+
+.owners-content {
+    flex: 1;
+    padding: 80px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.owners-content p {
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.owners-image {
+    flex: 1;
+}
+
+.owners-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* =========================================
+   Works Section
+   ========================================= */
+.works {
+    background-color: #fff;
+}
+
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.work-card {
+    display: block;
+}
+
+.work-img {
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.work-img img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/10;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.work-card:hover .work-img img {
+    transform: scale(1.05);
+}
+
+.work-category {
+    font-size: 0.8rem;
+    color: var(--color-accent);
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.work-title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    transition: color 0.3s;
+}
+
+.work-card:hover .work-title {
+    color: var(--color-accent);
+}
+
+.work-desc {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* =========================================
+   News Section
+   ========================================= */
+.news {
+    background-color: var(--color-bg);
+}
+
+.news-flex {
+    display: flex;
+    gap: 80px;
+}
+
+.news-header {
+    width: 250px;
+}
+
+.news-list {
+    flex: 1;
+    border-top: 1px solid #ddd;
+}
+
+.news-item a {
+    display: flex;
+    align-items: center;
+    padding: 30px 0;
+    border-bottom: 1px solid #ddd;
+    transition: padding-left 0.3s ease;
+}
+
+.news-item a:hover {
+    padding-left: 20px;
+}
+
+.news-meta {
+    width: 150px;
+    flex-shrink: 0;
+}
+
+.news-meta time {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.news-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    padding: 3px 10px;
+    background-color: #eee;
+    margin-top: 5px;
+}
+
+.news-title {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.news-item a:hover .news-title {
+    color: var(--color-accent);
+}
+
+/* =========================================
+   Company Section
+   ========================================= */
+.company {
+    background-color: #fff;
+}
+
+.company-info {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.company-info dl {
+    display: flex;
+    flex-wrap: wrap;
+    border-top: 1px solid #eee;
+}
+
+.company-info dt, .company-info dd {
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.company-info dt {
+    width: 30%;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+}
+
+.company-info dd {
+    width: 70%;
+    color: #555;
+}
+
+/* =========================================
+   Footer
+   ========================================= */
+.footer {
+    background-color: var(--color-text);
+    color: #fff;
+    padding: 60px 0;
+}
+
+.footer-logo {
+    font-size: 1.5rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+}
+
+.copyright {
+    font-size: 0.8rem;
+    color: #999;
+}
+
+/* =========================================
+   Animations
+   ========================================= */
+@keyframes slowZoom {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+}
+
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.fade-in-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.fade-in-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* JSによって付与されるクラス */
+.is-visible {
+    opacity: 1;
+    transform: translate(0);
+}
