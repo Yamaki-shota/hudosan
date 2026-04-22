@@ -1,5 +1,5 @@
 /* =========================================
-   Variables
+   Variables (色の設定)
    ========================================= */
 :root {
     --color-bg: #FAF9F8; /* グレージュ寄りの白 */
@@ -10,7 +10,7 @@
 }
 
 /* =========================================
-   Reset & Base
+   Reset & Base (基本設定)
    ========================================= */
 * {
     margin: 0;
@@ -38,7 +38,7 @@ a {
 }
 
 /* =========================================
-   Utility Classes
+   Utility Classes (よく使う設定)
    ========================================= */
 .container {
     max-width: 1100px;
@@ -49,7 +49,7 @@ a {
 .text-center { text-align: center; }
 .mt-40 { margin-top: 40px; }
 
-/* ボタンコンポーネント */
+/* ボタンのデザイン */
 .btn-primary, .btn-secondary {
     display: inline-block;
     padding: 15px 40px;
@@ -89,7 +89,7 @@ a {
 .btn-text:hover { color: var(--color-accent); }
 
 /* =========================================
-   Header
+   Header (上のメニュー)
    ========================================= */
 .header {
     position: fixed;
@@ -147,7 +147,7 @@ a {
 }
 
 /* =========================================
-   Hero Section
+   Hero Section (一番最初の大きい画像)
    ========================================= */
 .hero {
     height: 100vh;
@@ -192,7 +192,7 @@ a {
 }
 
 /* =========================================
-   Sections Common
+   Sections Common (各エリアの共通設定)
    ========================================= */
 .section {
     padding: 120px 0;
@@ -218,7 +218,7 @@ a {
 }
 
 /* =========================================
-   Concept Section
+   Concept Section (メッセージ)
    ========================================= */
 .concept-flex {
     display: flex;
@@ -257,14 +257,10 @@ a {
 }
 
 /* =========================================
-   Service Section
+   Service Section (強み)
    ========================================= */
 .service {
     background-color: #fff;
-}
-
-.service .section-header {
-    text-align: center;
 }
 
 .service-grid {
@@ -302,7 +298,7 @@ a {
 }
 
 /* =========================================
-   For Owners Section
+   For Owners Section (オーナー様へ)
    ========================================= */
 .owners {
     background-color: var(--color-bg);
@@ -340,7 +336,7 @@ a {
 }
 
 /* =========================================
-   Works Section
+   Works Section (事例)
    ========================================= */
 .works {
     background-color: #fff;
@@ -397,7 +393,7 @@ a {
 }
 
 /* =========================================
-   News Section
+   News Section (お知らせ)
    ========================================= */
 .news {
     background-color: var(--color-bg);
@@ -459,7 +455,7 @@ a {
 }
 
 /* =========================================
-   Company Section
+   Company Section (会社概要)
    ========================================= */
 .company {
     background-color: #fff;
@@ -493,7 +489,169 @@ a {
 }
 
 /* =========================================
-   Footer
+   Contact Section (お問い合わせフォーム)
+   ========================================= */
+.contact {
+    background-color: var(--color-bg);
+}
+
+.contact-desc {
+    color: #555;
+    margin-top: 20px;
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+.contact-form-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 60px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.03);
+    border-radius: 2px;
+}
+
+.form-group {
+    margin-bottom: 30px;
+}
+
+.form-group label {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+}
+
+.required, .optional {
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    margin-left: 15px;
+    border-radius: 2px;
+    font-weight: 400;
+}
+.required {
+    background-color: var(--color-accent);
+    color: #fff;
+}
+.optional {
+    background-color: #eee;
+    color: #666;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea,
+select {
+    width: 100%;
+    padding: 15px 20px;
+    border: 1px solid #ddd;
+    background-color: #FAFAFA;
+    border-radius: 2px;
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--color-text);
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--color-accent);
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(166, 138, 100, 0.1);
+}
+
+textarea {
+    resize: vertical;
+}
+
+::placeholder {
+    color: #bbb;
+}
+
+.select-wrap {
+    position: relative;
+}
+.select-wrap::after {
+    content: '▼';
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.7rem;
+    color: #999;
+    pointer-events: none;
+}
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+.form-agreement {
+    margin: 40px 0;
+    text-align: center;
+}
+.checkbox-wrap {
+    position: relative;
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+.checkbox-wrap input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+.checkmark {
+    height: 20px;
+    width: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    transition: all 0.2s;
+    position: relative;
+}
+.checkbox-wrap input:checked ~ .checkmark {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+}
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+.checkbox-wrap input:checked ~ .checkmark:after {
+    display: block;
+}
+.privacy-link {
+    color: var(--color-accent);
+    text-decoration: underline;
+}
+
+.btn-submit {
+    width: 100%;
+    max-width: 300px;
+    padding: 18px 0;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+}
+
+/* =========================================
+   Footer (一番下)
    ========================================= */
 .footer {
     background-color: var(--color-text);
@@ -513,7 +671,7 @@ a {
 }
 
 /* =========================================
-   Animations
+   Animations (動きの設定)
    ========================================= */
 @keyframes slowZoom {
     0% { transform: scale(1); }
@@ -538,8 +696,14 @@ a {
     transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* JSによって付与されるクラス */
 .is-visible {
     opacity: 1;
     transform: translate(0);
+}
+
+/* スマホ用の調整 */
+@media screen and (max-width: 768px) {
+    .contact-form-inner {
+        padding: 40px 20px;
+    }
 }
