@@ -707,3 +707,55 @@ select {
         padding: 40px 20px;
     }
 }
+
+/* =========================================
+   スマホ対応（レスポンシブデザイン）
+   ========================================= */
+@media screen and (max-width: 768px) {
+    /* 共通の余白調整 */
+    .container { padding: 0 20px; }
+    .section { padding: 80px 0; }
+    .section-title { font-size: 2rem; margin-bottom: 30px; }
+
+    /* ヘッダー */
+    .header { padding: 15px 20px; }
+    .logo { font-size: 1.2rem; }
+    /* ※デモ用のため、スマホ時はメニューの文字を非表示にします（本番では三本線のハンバーガーメニューを作ります） */
+    .gnav { display: none; } 
+    .btn-contact { padding: 10px 15px; font-size: 0.8rem; }
+
+    /* ヒーロー（最初の画像） */
+    .hero { padding-left: 5%; padding-right: 5%; }
+    .hero-title { font-size: 2.2rem; line-height: 1.3; }
+    .hero-sub { font-size: 0.95rem; }
+
+    /* Concept（横並びを縦並びに） */
+    .concept-flex { flex-direction: column; gap: 40px; }
+    .concept-image img { box-shadow: 10px 10px 0 var(--color-bg), 11px 11px 0 var(--color-accent); }
+
+    /* Service（3列を1列に） */
+    .service-grid { grid-template-columns: 1fr; gap: 20px; }
+    .service-card { padding: 30px 20px; }
+
+    /* Owners（横並びを縦並びに、画像を上に） */
+    .owners-inner { flex-direction: column-reverse; }
+    .owners-content { padding: 40px 20px; }
+    .owners-image img { height: 250px; }
+
+    /* Works（2列を1列に） */
+    .works-grid { grid-template-columns: 1fr; }
+
+    /* News（横並びを縦並びに） */
+    .news-flex { flex-direction: column; gap: 20px; }
+    .news-header { width: 100%; }
+    .news-item a { flex-direction: column; align-items: flex-start; gap: 10px; padding: 20px 0; }
+    .news-meta { width: 100%; }
+
+    /* Company（横並びの表を縦に） */
+    .company-info dt, .company-info dd { width: 100%; padding: 10px 0; }
+    .company-info dt { border-bottom: none; padding-bottom: 0; }
+
+    /* Contact（余白をスマホ用に狭く） */
+    .contact-form-inner { padding: 30px 15px; }
+    .btn-submit { max-width: 100%; }
+}
