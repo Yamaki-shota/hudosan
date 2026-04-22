@@ -68,7 +68,7 @@
     <!-- Service Section -->
     <section id="service" class="section service">
         <div class="container">
-            <div class="section-header js-scroll fade-in-up">
+            <div class="section-header text-center js-scroll fade-in-up">
                 <span class="section-en">Service</span>
                 <h2 class="section-title">私たちの強み</h2>
             </div>
@@ -211,6 +211,71 @@
                     <dt>免許番号</dt>
                     <dd>東京都知事 (1) 第XXXXXX号</dd>
                 </dl>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section (オリジナルデザインのダミーフォーム) -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="section-header text-center js-scroll fade-in-up">
+                <span class="section-en">Contact</span>
+                <h2 class="section-title">お問い合わせ</h2>
+                <p class="contact-desc">
+                    物件管理のご相談、リノベーションのお見積りなど、お気軽にお問い合わせください。<br>
+                    ※こちらはデモサイトのため、実際には送信されません。
+                </p>
+            </div>
+            
+            <div class="contact-form-inner js-scroll fade-in-up" style="transition-delay: 0.2s;">
+                <form action="#" method="post" class="custom-form">
+                    
+                    <div class="form-group">
+                        <label for="category">お問い合わせ種別 <span class="required">必須</span></label>
+                        <div class="select-wrap">
+                            <select id="category" name="category">
+                                <option value="" disabled selected>選択してください</option>
+                                <option value="管理委託について">管理委託について</option>
+                                <option value="リノベーションについて">リノベーションについて</option>
+                                <option value="入居中のご相談">入居中のご相談（入居者様）</option>
+                                <option value="その他">その他</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">お名前 <span class="required">必須</span></label>
+                        <input type="text" id="name" name="name" placeholder="山田 彩音">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">メールアドレス <span class="required">必須</span></label>
+                        <input type="email" id="email" name="email" placeholder="mail@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tel">電話番号 <span class="optional">任意</span></label>
+                        <input type="tel" id="tel" name="tel" placeholder="090-0000-0000">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">お問い合わせ内容 <span class="required">必須</span></label>
+                        <textarea id="message" name="message" rows="6" placeholder="ご相談内容をご記入ください。"></textarea>
+                    </div>
+
+                    <div class="form-agreement">
+                        <label class="checkbox-wrap">
+                            <input type="checkbox" name="agreement">
+                            <span class="checkmark"></span>
+                            <span class="agreement-text"><a href="#" class="privacy-link">プライバシーポリシー</a>に同意する</span>
+                        </label>
+                    </div>
+
+                    <div class="form-submit text-center">
+                        <button type="button" class="btn-primary btn-submit" onclick="alert('デモサイトのため送信はされません。本番ではここに送信機能が実装されます。')">入力内容を確認する</button>
+                    </div>
+
+                </form>
             </div>
         </div>
     </section>
